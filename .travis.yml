@@ -7,4 +7,7 @@ addons:
       secure: c36ab158b3802c5189bcd2a835bdc7e9fb29760c # encrypted value of your token
 script:
   # the following command line builds the project, runs the tests with coverage and then execute the SonarCloud analysis
-  - mvn clean org.jacoco:jacoco-maven-plugin:prepare-agent install sonar:sonar
+  mvn clean org.jacoco:jacoco-maven-plugin:prepare-agent package sonar:sonar \
+      -Dsonar.host.url=https://sonarcloud.io \
+      -Dsonar.organization=travistestgithub \
+      -Dsonar.login=c36ab158b3802c5189bcd2a835bdc7e9fb29760c
